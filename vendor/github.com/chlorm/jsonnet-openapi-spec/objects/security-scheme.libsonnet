@@ -13,8 +13,22 @@
 // limitations under the License.
 
 {
+  // Types
+  apikey:: 'apiKey',
+  http:: 'http',
+  oauth2:: 'oauth2',
+  openidconnect:: 'openIdConnect',
+
+  // In
+  cookie:: 'cookie',
+  header:: 'header',
+  query:: 'query',
+
   // https://swagger.io/specification/#securitySchemeObject
-  new():: {
+  new(nameString):: {
+    assert std.isString(nameString),
+    name: nameString,
+
     Type(s):: self {
       assert std.isString(s),
       type: s,
@@ -23,11 +37,6 @@
     Description(s):: self {
       assert std.isString(s),
       description: s,
-    },
-
-    Name(s):: self {
-      assert std.isString(s),
-      name: s,
     },
 
     In(s):: self {

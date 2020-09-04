@@ -30,6 +30,7 @@
 
   // https://swagger.io/specification/#parameterObject
   new(nameString):: {
+    assert std.isString(nameString),
     name: nameString,
 
     In(s):: self {

@@ -53,7 +53,8 @@
     import 'objects/request-body.libsonnet',
   response::
     import 'objects/response.libsonnet',
-  //schema:: import 'objects/schema.libsonnet',
+  schema::
+    import 'objects/schema.libsonnet',
   securityrequirement::
     import 'objects/security-requirement.libsonnet',
   securityscheme::
