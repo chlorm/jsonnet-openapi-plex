@@ -12,7 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-local openapi = import 'jsonnet-openapi-spec/openapi-v3.0.libsonnet';
+local openapi = import 'github.com/chlorm/jsonnet-openapi-spec/openapi-v3.0.libsonnet';
 
 {
   //////////////////////////////////////////////////////////////////////////////

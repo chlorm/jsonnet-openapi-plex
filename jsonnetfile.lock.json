@@ -1,0 +1,16 @@
+{
+  "version": 1,
+  "dependencies": [
+    {
+      "source": {
+        "git": {
+          "remote": "https://github.com/chlorm/jsonnet-openapi-spec.git",
+          "subdir": ""
+        }
+      },
+      "version": "a4a1607210a9cc746aba3bd870c608a0523300c5",
+      "sum": "zQrP3dv/SQ00xu8jInbu1g2Ts63hlfO7MhTfAqYtnrQ="
+    }
+  ],
+  "legacyImports": false
+}
