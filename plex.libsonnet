@@ -12,7 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-local openapi = import 'github.com/chlorm/jsonnet-openapi-spec/openapi-v3.0.libsonnet';
+local openapi = import 'github.com/chlorm/jsonnet-openapi-spec/openapi.libsonnet';
 
 {
   //////////////////////////////////////////////////////////////////////////////
@@ -38,7 +38,8 @@ local openapi = import 'github.com/chlorm/jsonnet-openapi-spec/openapi-v3.0.libs
         defaultSubtitleLanguage: $.schema.languageSelect,
       })
       .Property({
-        subtitleMode: openapi.schema.new(openapi.schema.integer),
+        subtitleMode:
+          openapi.schema.new(openapi.schema.integer),
       }),
 
     chapter::
@@ -49,10 +50,12 @@ local openapi = import 'github.com/chlorm/jsonnet-openapi-spec/openapi-v3.0.libs
       .Property($.property.tag)
       .Property($.property.thumb)
       .Property({
-        endTimeOffset: openapi.schema.new(openapi.schema.integer),
+        endTimeOffset:
+          openapi.schema.new(openapi.schema.integer),
       })
       .Property({
-        startTimeOffset: openapi.schema.new(openapi.schema.integer),
+        startTimeOffset:
+          openapi.schema.new(openapi.schema.integer),
       }),
 
     device::
@@ -70,24 +73,66 @@ local openapi = import 'github.com/chlorm/jsonnet-openapi-spec/openapi-v3.0.libs
       .Property($.property.title)
       .Property($.property.type)
       .Property($.property.updatedAt)
-      .Property({ agent: openapi.schema.new(openapi.schema.string) })
-      .Property({ art: openapi.schema.new(openapi.schema.string) })
-      .Property({ composite: openapi.schema.new(openapi.schema.string) })
-      .Property({ content: openapi.schema.new(openapi.schema.boolean) })
       .Property({
-        contentChangedAt: openapi.schema.new(openapi.schema.integer),
+        agent:
+          openapi.schema.new(openapi.schema.string),
       })
-      .Property({ directory: openapi.schema.new(openapi.schema.boolean) })
-      .Property({ filters: openapi.schema.new(openapi.schema.boolean) })
-      .Property({ hidden: $.schema.boolInt })
-      .Property({ key: openapi.schema.new(openapi.schema.integer) })
-      .Property({ language: openapi.schema.new(openapi.schema.string) })
-      .Property({ refreshing: openapi.schema.new(openapi.schema.boolean) })
-      .Property({ scannedAt: openapi.schema.new(openapi.schema.integer) })
-      .Property({ scanner: openapi.schema.new(openapi.schema.string) })
-      .Property({ uuid: openapi.schema.new(openapi.schema.string) })
+      .Property({
+        art:
+          openapi.schema.new(openapi.schema.string),
+      })
+      .Property({
+        composite:
+          openapi.schema.new(openapi.schema.string),
+      })
+      .Property({
+        content:
+          openapi.schema.new(openapi.schema.boolean),
+      })
+      .Property({
+        contentChangedAt:
+          openapi.schema.new(openapi.schema.integer),
+      })
+      .Property({
+        directory:
+          openapi.schema.new(openapi.schema.boolean),
+      })
+      .Property({
+        filters:
+          openapi.schema.new(openapi.schema.boolean),
+      })
+      .Property({
+        hidden: $.schema.boolInt,
+      })
+      .Property({
+        key:
+          openapi.schema.new(openapi.schema.integer),
+      })
+      .Property({
+        language:
+          openapi.schema.new(openapi.schema.string),
+      })
+      .Property({
+        refreshing:
+          openapi.schema.new(openapi.schema.boolean),
+      })
+      .Property({
+        scannedAt:
+          openapi.schema.new(openapi.schema.integer),
+      })
+      .Property({
+        scanner:
+          openapi.schema.new(openapi.schema.string),
+      })
+      .Property({
+        uuid:
+          openapi.schema.new(openapi.schema.string),
+      })
       // FIXME:
-      .Property({ Location: openapi.schema.new(openapi.schema.string) }),
+      .Property({
+        Location:
+          openapi.schema.new(openapi.schema.string),
+      }),
 
     // Represents a single Hub (or category).
     hub::
@@ -97,20 +142,39 @@ local openapi = import 'github.com/chlorm/jsonnet-openapi-spec/openapi-v3.0.libs
       .Property($.property.size)
       .Property($.property.title)
       .Property($.property.type)
-      .Property({ context: openapi.schema.new(openapi.schema.string) })
-      .Property({ hubKey: openapi.schema.new(openapi.schema.string) })
-      .Property({ hubIdentifier: openapi.schema.new(openapi.schema.string) })
-      .Property({ more: openapi.schema.new(openapi.schema.boolean) })
-      .Property({ promoted: openapi.schema.new(openapi.schema.boolean) })
-      .Property({ style: openapi.schema.new(openapi.schema.string) }),
+      .Property({
+        context:
+          openapi.schema.new(openapi.schema.string),
+      })
+      .Property({
+        hubKey:
+          openapi.schema.new(openapi.schema.string),
+      })
+      .Property({
+        hubIdentifier:
+          openapi.schema.new(openapi.schema.string),
+      })
+      .Property({
+        more:
+          openapi.schema.new(openapi.schema.boolean),
+      })
+      .Property({
+        promoted:
+          openapi.schema.new(openapi.schema.boolean),
+      })
+      .Property({
+        style:
+          openapi.schema.new(openapi.schema.string),
+      }),
 
     // Represents a single library Location.
     location::
       openapi.schema.new(openapi.schema.object)
       .Property($.property.id)
       .Property({
-        path: openapi.schema.new(openapi.schema.string)
-              .Example('"C:\\Users\\username\\Videos\\films"'),
+        path:
+          openapi.schema.new(openapi.schema.string)
+          .Example('"C:\\Users\\username\\Videos\\films"'),
       }),
 
     media::
@@ -125,20 +189,61 @@ local openapi = import 'github.com/chlorm/jsonnet-openapi-spec/openapi-v3.0.libs
           .Example(1.78)
           .Format(openapi.schema.float),
       })
-      .Property({ audioChannels: openapi.schema.new(openapi.schema.integer) })
-      .Property({ audioCodec: openapi.schema.new(openapi.schema.string) })
-      .Property({ audioProfile: openapi.schema.new(openapi.schema.string) })
-      .Property({ bitrate: openapi.schema.new(openapi.schema.integer) })
-      .Property({ container: openapi.schema.new(openapi.schema.string) })
-      .Property({ height: openapi.schema.new(openapi.schema.integer) })
-      .Property({ optimizedForStreaming: $.schema.boolInt },)
-      .Property({ premium: openapi.schema.new(openapi.schema.boolean) },)
-      .Property({ selected: openapi.schema.new(openapi.schema.boolean) })
-      .Property({ videoCodec: openapi.schema.new(openapi.schema.string) })
-      .Property({ videoFrameRate: openapi.schema.new(openapi.schema.string) })
-      .Property({ videoProfile: openapi.schema.new(openapi.schema.string) })
-      .Property({ videoResolution: openapi.schema.new(openapi.schema.string) })
-      .Property({ width: openapi.schema.new(openapi.schema.integer) }),
+      .Property({
+        audioChannels:
+          openapi.schema.new(openapi.schema.integer),
+      })
+      .Property({
+        audioCodec:
+          openapi.schema.new(openapi.schema.string),
+      })
+      .Property({
+        audioProfile:
+          openapi.schema.new(openapi.schema.string),
+      })
+      .Property({
+        bitrate:
+          openapi.schema.new(openapi.schema.integer),
+      })
+      .Property({
+        container:
+          openapi.schema.new(openapi.schema.string),
+      })
+      .Property({
+        height:
+          openapi.schema.new(openapi.schema.integer),
+      })
+      .Property({
+        optimizedForStreaming: $.schema.boolInt,
+      },)
+      .Property({
+        premium:
+          openapi.schema.new(openapi.schema.boolean),
+      },)
+      .Property({
+        selected:
+          openapi.schema.new(openapi.schema.boolean),
+      })
+      .Property({
+        videoCodec:
+          openapi.schema.new(openapi.schema.string),
+      })
+      .Property({
+        videoFrameRate:
+          openapi.schema.new(openapi.schema.string),
+      })
+      .Property({
+        videoProfile:
+          openapi.schema.new(openapi.schema.string),
+      })
+      .Property({
+        videoResolution:
+          openapi.schema.new(openapi.schema.string),
+      })
+      .Property({
+        width:
+          openapi.schema.new(openapi.schema.integer),
+      }),
 
     metadata::
       openapi.schema.new(openapi.schema.object)
@@ -170,79 +275,196 @@ local openapi = import 'github.com/chlorm/jsonnet-openapi-spec/openapi-v3.0.libs
       .Property($.property.viewedAt)
       .Property($.property.viewCount)
       .Property($.property.writers)
-      .Property({ art: openapi.schema.new(openapi.schema.string)
-                       .Example('/library/metadata/50163/art/1597001947') })
-      .Property({ audienceRating: openapi.schema.new(openapi.schema.number)
-                                  .Example(9.5)
-                                  .Format(openapi.schema.float) })
       .Property({
-        audienceRatingImage: openapi.schema.new(openapi.schema.string)
-                             .Example('rottentomatoes://image.rating.upright'),
-      })
-      .Property({ chapterSource: openapi.schema.new(openapi.schema.string)
-                                 .Enum('media') })
-      .Property({ composite: openapi.schema.new(openapi.schema.string) })
-      .Property({ contentRating: openapi.schema.new(openapi.schema.string) })
-      .Property({ extraType: openapi.schema.new(openapi.schema.integer) })
-      .Property({ grandparentArt: openapi.schema.new(openapi.schema.string) })
-      .Property({
-        grandparentGuid: openapi.schema.new(openapi.schema.string)
-                         .Example('plex://artist/5d07beb0403c6402906c3604'),
-      })
-      .Property({ grandparentKey: openapi.schema.new(openapi.schema.integer)
-                                  .Example('/library/metadata/33901') })
-      .Property({
-        grandparentRatingKey: openapi.schema.new(openapi.schema.string),
-      })
-      .Property({ grandparentThumb: $.schema.thumb })
-      .Property({ grandparentTitle: openapi.schema.new(openapi.schema.string) })
-      .Property({ grandparentUUID: openapi.schema.new(openapi.schema.string) })
-      .Property({ historyKey: openapi.schema.new(openapi.schema.string) })
-      .Property({ lastViewedAt: openapi.schema.new(openapi.schema.string) })
-      .Property({ librarySectionID: openapi.schema.new(openapi.schema.integer)
-                                    .Example(4) })
-      .Property({ librarySectionKey: openapi.schema.new(openapi.schema.string)
-                                     .Example('/library/sections/4') })
-      .Property({
-        librarySectionTitle: openapi.schema.new(openapi.schema.string)
-                             .Example('a3f0edb8-daa7-4a71-ae49-df2bbc4f3b11'),
+        art:
+          openapi.schema.new(openapi.schema.string)
+          .Example('/library/metadata/50163/art/1597001947'),
       })
       .Property({
-        loudnessAnalysisVersion: openapi.schema.new(openapi.schema.integer),
+        audienceRating:
+          openapi.schema.new(openapi.schema.number)
+          .Example(9.5)
+          .Format(openapi.schema.float),
       })
-      .Property({ originalTitle: openapi.schema.new(openapi.schema.string) })
       .Property({
-        originallyAvailableAt: openapi.schema.new(openapi.schema.string)
-                               .Example('1975-05-25'),
+        audienceRatingImage:
+          openapi.schema.new(openapi.schema.string)
+          .Example('rottentomatoes://image.rating.upright'),
       })
-      .Property({ parentGuid: openapi.schema.new(openapi.schema.string) })
-      .Property({ parentIndex: openapi.schema.new(openapi.schema.string) })
-      .Property({ parentKey: openapi.schema.new(openapi.schema.string) })
-      .Property({ parentRatingKey: openapi.schema.new(openapi.schema.integer) })
-      .Property({ parentThumb: $.schema.thumb })
-      .Property({ parentTitle: openapi.schema.new(openapi.schema.string) })
-      .Property({ playlistItemID: openapi.schema.new(openapi.schema.integer)
-                                  .Example(957) },)
-      .Property({ playlistType: $.schema.playlistType })
-      .Property({ primaryExtraKey: openapi.schema.new(openapi.schema.string) })
-      .Property({ rating: openapi.schema.new(openapi.schema.number)
-                          .Example(9.7)
-                          .Format(openapi.schema.float) })
-      .Property({ ratingCount: openapi.schema.new(openapi.schema.integer) })
-      .Property({ ratingImage: openapi.schema.new(openapi.schema.string)
-                               .Example('rottentomatoes://image.rating.ripe') })
-      .Property({ sessionKey: openapi.schema.new(openapi.schema.integer) })
-      .Property({ studio: openapi.schema.new(openapi.schema.string) })
-      .Property({ subtype: openapi.schema.new(openapi.schema.string)
-                           .Enum('trailer') })
-      .Property({ summary: openapi.schema.new(openapi.schema.string) })
-      .Property({ tagline: openapi.schema.new(openapi.schema.string) })
-      .Property({ titleSort: openapi.schema.new(openapi.schema.string) })
-      .Property({ userRating: openapi.schema.new(openapi.schema.integer) })
-      .Property({ viewedLeafCount: openapi.schema.new(openapi.schema.integer) })
-      .Property({ viewOffset: openapi.schema.new(openapi.schema.integer)
-                              .Example(354071) })
-      .Property({ year: openapi.schema.new(openapi.schema.integer) })
+      .Property({
+        chapterSource:
+          openapi.schema.new(openapi.schema.string)
+          .Enum('media'),
+      })
+      .Property({
+        composite:
+          openapi.schema.new(openapi.schema.string),
+      })
+      .Property({
+        contentRating:
+          openapi.schema.new(openapi.schema.string),
+      })
+      .Property({
+        extraType:
+          openapi.schema.new(openapi.schema.integer),
+      })
+      .Property({
+        grandparentArt:
+          openapi.schema.new(openapi.schema.string),
+      })
+      .Property({
+        grandparentGuid:
+          openapi.schema.new(openapi.schema.string)
+          .Example('plex://artist/5d07beb0403c6402906c3604'),
+      })
+      .Property({
+        grandparentKey:
+          openapi.schema.new(openapi.schema.integer)
+          .Example('/library/metadata/33901'),
+      })
+      .Property({
+        grandparentRatingKey:
+          openapi.schema.new(openapi.schema.string),
+      })
+      .Property({
+        grandparentThumb: $.schema.thumb,
+      })
+      .Property({
+        grandparentTitle:
+          openapi.schema.new(openapi.schema.string),
+      })
+      .Property({
+        grandparentUUID:
+          openapi.schema.new(openapi.schema.string),
+      })
+      .Property({
+        historyKey:
+          openapi.schema.new(openapi.schema.string),
+      })
+      .Property({
+        lastViewedAt:
+          openapi.schema.new(openapi.schema.string),
+      })
+      .Property({
+        librarySectionID:
+          openapi.schema.new(openapi.schema.integer)
+          .Example(4),
+      })
+      .Property({
+        librarySectionKey:
+          openapi.schema.new(openapi.schema.string)
+          .Example('/library/sections/4'),
+      })
+      .Property({
+        librarySectionTitle:
+          openapi.schema.new(openapi.schema.string)
+          .Example('a3f0edb8-daa7-4a71-ae49-df2bbc4f3b11'),
+      })
+      .Property({
+        loudnessAnalysisVersion:
+          openapi.schema.new(openapi.schema.integer),
+      })
+      .Property({
+        originalTitle:
+          openapi.schema.new(openapi.schema.string),
+      })
+      .Property({
+        originallyAvailableAt:
+          openapi.schema.new(openapi.schema.string)
+          .Example('1975-05-25'),
+      })
+      .Property({
+        parentGuid:
+          openapi.schema.new(openapi.schema.string),
+      })
+      .Property({
+        parentIndex:
+          openapi.schema.new(openapi.schema.string),
+      })
+      .Property({
+        parentKey:
+          openapi.schema.new(openapi.schema.string),
+      })
+      .Property({
+        parentRatingKey:
+          openapi.schema.new(openapi.schema.integer),
+      })
+      .Property({
+        parentThumb: $.schema.thumb,
+      })
+      .Property({
+        parentTitle:
+          openapi.schema.new(openapi.schema.string),
+      })
+      .Property({
+        playlistItemID:
+          openapi.schema.new(openapi.schema.integer)
+          .Example(957),
+      },)
+      .Property({
+        playlistType: $.schema.playlistType,
+      })
+      .Property({
+        primaryExtraKey:
+          openapi.schema.new(openapi.schema.string),
+      })
+      .Property({
+        rating:
+          openapi.schema.new(openapi.schema.number)
+          .Example(9.7)
+          .Format(openapi.schema.float),
+      })
+      .Property({
+        ratingCount:
+          openapi.schema.new(openapi.schema.integer),
+      })
+      .Property({
+        ratingImage:
+          openapi.schema.new(openapi.schema.string)
+          .Example('rottentomatoes://image.rating.ripe'),
+      })
+      .Property({
+        sessionKey:
+          openapi.schema.new(openapi.schema.integer),
+      })
+      .Property({
+        studio:
+          openapi.schema.new(openapi.schema.string),
+      })
+      .Property({
+        subtype:
+          openapi.schema.new(openapi.schema.string)
+          .Enum('trailer'),
+      })
+      .Property({
+        summary:
+          openapi.schema.new(openapi.schema.string),
+      })
+      .Property({
+        tagline:
+          openapi.schema.new(openapi.schema.string),
+      })
+      .Property({
+        titleSort:
+          openapi.schema.new(openapi.schema.string),
+      })
+      .Property({
+        userRating:
+          openapi.schema.new(openapi.schema.integer),
+      })
+      .Property({
+        viewedLeafCount:
+          openapi.schema.new(openapi.schema.integer),
+      })
+      .Property({
+        viewOffset:
+          openapi.schema.new(openapi.schema.integer)
+          .Example(354071),
+      })
+      .Property({
+        year:
+          openapi.schema.new(openapi.schema.integer),
+      })
     // Collection
     // Location?
     // Mood
@@ -263,26 +485,46 @@ local openapi = import 'github.com/chlorm/jsonnet-openapi-spec/openapi-v3.0.libs
       .Property($.property.id)
       .Property($.property.key)
       .Property($.property.streams)
-      .Property({ audioProfile: openapi.schema.new(openapi.schema.string)
-                                .Example('ma') })
-      .Property({ container: openapi.schema.new(openapi.schema.string)
-                             .Example('mkv') })
-      .Property({ decision: openapi.schema.new(openapi.schema.string)
-                            .Enum('directPlay') })
+      .Property({
+        audioProfile:
+          openapi.schema.new(openapi.schema.string)
+          .Example('ma'),
+      })
+      .Property({
+        container:
+          openapi.schema.new(openapi.schema.string)
+          .Example('mkv'),
+      })
+      .Property({
+        decision:
+          openapi.schema.new(openapi.schema.string)
+          .Enum('directPlay'),
+      })
       .Property({
         file:
           openapi.schema.new(openapi.schema.string)
           .Example('C:\\Users\\username\\Videos\\films\\' +
                    'Return.of.the.Jedi.4K83.2160p.UHD.DNR.35mm.x265-v1.1.mkv'),
       })
-      .Property({ hasThumbnail: $.schema.boolInt })
-      .Property({ selected: openapi.schema.new(openapi.schema.boolean) })
-      .Property({ size: openapi.schema.new(openapi.schema.integer)
-                        // FIXME: make sure this is bytes
-                        .Description('File size in bytes')
-                        .Example(71098509375) })
-      .Property({ videoProfile: openapi.schema.new(openapi.schema.string)
-                                .Example('main 10') }),
+      .Property({
+        hasThumbnail: $.schema.boolInt,
+      })
+      .Property({
+        selected:
+          openapi.schema.new(openapi.schema.boolean),
+      })
+      .Property({
+        size:
+          openapi.schema.new(openapi.schema.integer)
+          // FIXME: make sure this is bytes
+          .Description('File size in bytes')
+          .Example(71098509375),
+      })
+      .Property({
+        videoProfile:
+          openapi.schema.new(openapi.schema.string)
+          .Example('main 10'),
+      }),
 
     player::
       openapi.schema.new(openapi.schema.object)
@@ -291,20 +533,54 @@ local openapi = import 'github.com/chlorm/jsonnet-openapi-spec/openapi-v3.0.libs
       .Property($.property.platform)
       .Property($.property.product)
       .Property($.property.title)
-      .Property({ device: openapi.schema.new(openapi.schema.string) })
-      .Property({ model: openapi.schema.new(openapi.schema.string) })
-      .Property({ platformVersion: openapi.schema.new(openapi.schema.string) })
-      .Property({ profile: openapi.schema.new(openapi.schema.string) })
       .Property({
-        remotePublicAddress: openapi.schema.new(openapi.schema.string),
+        device:
+          openapi.schema.new(openapi.schema.string),
       })
-      .Property({ state: openapi.schema.new(openapi.schema.string) })
-      .Property({ vendor: openapi.schema.new(openapi.schema.string) })
-      .Property({ version: openapi.schema.new(openapi.schema.string) })
-      .Property({ 'local': openapi.schema.new(openapi.schema.boolean) })
-      .Property({ relayed: openapi.schema.new(openapi.schema.boolean) })
-      .Property({ secure: openapi.schema.new(openapi.schema.boolean) })
-      .Property({ userID: openapi.schema.new(openapi.schema.integer) }),
+      .Property({
+        model:
+          openapi.schema.new(openapi.schema.string),
+      })
+      .Property({
+        platformVersion:
+          openapi.schema.new(openapi.schema.string),
+      })
+      .Property({
+        profile:
+          openapi.schema.new(openapi.schema.string),
+      })
+      .Property({
+        remotePublicAddress:
+          openapi.schema.new(openapi.schema.string),
+      })
+      .Property({
+        state:
+          openapi.schema.new(openapi.schema.string),
+      })
+      .Property({
+        vendor:
+          openapi.schema.new(openapi.schema.string),
+      })
+      .Property({
+        version:
+          openapi.schema.new(openapi.schema.string),
+      })
+      .Property({
+        'local':
+          openapi.schema.new(openapi.schema.boolean),
+      })
+      .Property({
+        relayed:
+          openapi.schema.new(openapi.schema.boolean),
+      })
+      .Property({
+        secure:
+          openapi.schema.new(openapi.schema.boolean),
+      })
+      .Property({
+        userID:
+          openapi.schema.new(openapi.schema.integer),
+      }),
 
     server::
       openapi.schema.new(openapi.schema.object)
@@ -338,97 +614,227 @@ local openapi = import 'github.com/chlorm/jsonnet-openapi-spec/openapi-v3.0.libs
       openapi.schema.new(openapi.schema.object)
       .Property($.property.idStr)
       .Property($.property.type)
-      .Property({ advanced: openapi.schema.new(openapi.schema.boolean) })
-      .Property({ default: openapi.schema.new(openapi.schema.integer) })
-      .Property({ enumValues: openapi.schema.new(openapi.schema.string) })
-      .Property({ group: openapi.schema.new(openapi.schema.string) })
-      .Property({ hidden: openapi.schema.new(openapi.schema.boolean) })
-      .Property({ label: openapi.schema.new(openapi.schema.string) })
-      .Property({ summary: openapi.schema.new(openapi.schema.string) })
-      .Property({ type: openapi.schema.new(openapi.schema.string)
-                        .Enum('int')
-                        .Enum('text') })
-      .Property({ value: openapi.schema.new(openapi.schema.integer) }),
+      .Property({
+        advanced:
+          openapi.schema.new(openapi.schema.boolean),
+      })
+      .Property({
+        default:
+          openapi.schema.new(openapi.schema.integer),
+      })
+      .Property({
+        enumValues:
+          openapi.schema.new(openapi.schema.string),
+      })
+      .Property({
+        group:
+          openapi.schema.new(openapi.schema.string),
+      })
+      .Property({
+        hidden:
+          openapi.schema.new(openapi.schema.boolean),
+      })
+      .Property({
+        label:
+          openapi.schema.new(openapi.schema.string),
+      })
+      .Property({
+        summary:
+          openapi.schema.new(openapi.schema.string),
+      })
+      .Property({
+        type:
+          openapi.schema.new(openapi.schema.string)
+          .Enum('int')
+          .Enum('text'),
+      })
+      .Property({
+        value:
+          openapi.schema.new(openapi.schema.integer),
+      }),
 
     stream::
       openapi.schema.new(openapi.schema.object)
       .Property($.property.id)
       .Property($.property.index)
       .Property($.property.title)
-      .Property({ albumGain: openapi.schema.new(openapi.schema.number)
-                             .Format(openapi.schema.float) })
-      .Property({ albumPeak: openapi.schema.new(openapi.schema.number)
-                             .Format(openapi.schema.float) })
-      .Property({ albumRange: openapi.schema.new(openapi.schema.number)
-                              .Format(openapi.schema.float) })
-      .Property({ audioChannelLayout: openapi.schema.new(openapi.schema.string)
-                                      .Example('5.1(side)') })
-      .Property({ bitDepth: openapi.schema.new(openapi.schema.integer)
-                            .Example(8)
-                            .Enum(8)
-                            .Enum(10)
-                            .Enum(12) })
-      .Property({ bitrate: openapi.schema.new(openapi.schema.integer)
-                           .Example(26838) })
-      .Property({ channels: openapi.schema.new(openapi.schema.integer)
-                            .Example(6) })
-      .Property({ chromaLocation: openapi.schema.new(openapi.schema.string)
-                                  .Example('left')
-                                  .Enum('left') })
       .Property({
-        chromaSubsampling: openapi.schema.new(openapi.schema.string),
+        albumGain:
+          openapi.schema.new(openapi.schema.number)
+          .Format(openapi.schema.float),
       })
-      .Property({ codec: openapi.schema.new(openapi.schema.string)
-                         .Example('h264') })
-      .Property({ codedHeight: openapi.schema.new(openapi.schema.integer)
-                               .Example(1088) })
-      .Property({ codedWidth: openapi.schema.new(openapi.schema.integer)
-                              .Example(1920) })
-      .Property({ colorPrimaries: openapi.schema.new(openapi.schema.string) })
-      .Property({ colorRange: openapi.schema.new(openapi.schema.string) })
-      .Property({ colorSpace: openapi.schema.new(openapi.schema.string) })
-      .Property({ colorTrc: openapi.schema.new(openapi.schema.string) })
-      .Property({ default: openapi.schema.new(openapi.schema.boolean) })
-      .Property({ displayTitle: openapi.schema.new(openapi.schema.string)
-                                .Example('English (DTS-HD MA 5.1)') })
+      .Property({
+        albumPeak:
+          openapi.schema.new(openapi.schema.number)
+          .Format(openapi.schema.float),
+      })
+      .Property({
+        albumRange:
+          openapi.schema.new(openapi.schema.number)
+          .Format(openapi.schema.float),
+      })
+      .Property({
+        audioChannelLayout:
+          openapi.schema.new(openapi.schema.string)
+          .Example('5.1(side)'),
+      })
+      .Property({
+        bitDepth:
+          openapi.schema.new(openapi.schema.integer)
+          .Example(8)
+          .Enum(8)
+          .Enum(10)
+          .Enum(12),
+      })
+      .Property({
+        bitrate:
+          openapi.schema.new(openapi.schema.integer)
+          .Example(26838),
+      })
+      .Property({
+        channels:
+          openapi.schema.new(openapi.schema.integer)
+          .Example(6),
+      })
+      .Property({
+        chromaLocation:
+          openapi.schema.new(openapi.schema.string)
+          .Example('left')
+          .Enum('left'),
+      })
+      .Property({
+        chromaSubsampling:
+          openapi.schema.new(openapi.schema.string),
+      })
+      .Property({
+        codec:
+          openapi.schema.new(openapi.schema.string)
+          .Example('h264'),
+      })
+      .Property({
+        codedHeight:
+          openapi.schema.new(openapi.schema.integer)
+          .Example(1088),
+      })
+      .Property({
+        codedWidth:
+          openapi.schema.new(openapi.schema.integer)
+          .Example(1920),
+      })
+      .Property({
+        colorPrimaries:
+          openapi.schema.new(openapi.schema.string),
+      })
+      .Property({
+        colorRange:
+          openapi.schema.new(openapi.schema.string),
+      })
+      .Property({
+        colorSpace:
+          openapi.schema.new(openapi.schema.string),
+      })
+      .Property({
+        colorTrc:
+          openapi.schema.new(openapi.schema.string),
+      })
+      .Property({
+        default:
+          openapi.schema.new(openapi.schema.boolean),
+      })
+      .Property({
+        displayTitle:
+          openapi.schema.new(openapi.schema.string)
+          .Example('English (DTS-HD MA 5.1)'),
+      })
       .Property({
         extendedDisplayTitle:
           openapi.schema.new(openapi.schema.string)
           .Example('Surround 5.1 (English DTS-HD MA)'),
       })
-      .Property({ frameRate: openapi.schema.new(openapi.schema.number)
-                             .Example(23.976)
-                             .Format(openapi.schema.float) })
-      .Property({ gain: openapi.schema.new(openapi.schema.number)
-                        .Format(openapi.schema.float) })
       .Property({
-        hasScalingMatrix: openapi.schema.new(openapi.schema.boolean),
+        frameRate:
+          openapi.schema.new(openapi.schema.number)
+          .Example(23.976)
+          .Format(openapi.schema.float),
       })
-      .Property({ height: openapi.schema.new(openapi.schema.integer)
-                          .Example(1080) })
-      .Property({ language: openapi.schema.new(openapi.schema.string)
-                            .Example('English') })
-      .Property({ languageCode: openapi.schema.new(openapi.schema.string)
-                                .Example('eng') })
-      .Property({ level: openapi.schema.new(openapi.schema.integer) })
-      .Property({ loudness: openapi.schema.new(openapi.schema.number)
-                            .Format(openapi.schema.float) })
-      .Property({ lra: openapi.schema.new(openapi.schema.number)
-                       .Format(openapi.schema.float) })
-      .Property({ peak: openapi.schema.new(openapi.schema.number)
-                        .Format(openapi.schema.float) })
-      .Property({ profile: openapi.schema.new(openapi.schema.string) })
-      .Property({ refFrames: openapi.schema.new(openapi.schema.integer) })
-      .Property({ samplingRate: openapi.schema.new(openapi.schema.integer) })
-      .Property({ scanType: openapi.schema.new(openapi.schema.string)
-                            .Example('progressive')
-                            .Enum('progressive') })
-      .Property({ selected: $.schema.boolInt })
-      .Property({ streamType: openapi.schema.new(openapi.schema.integer)
-                              .Example(1) })
-      .Property({ width: openapi.schema.new(openapi.schema.integer)
-                         .Example(1920) })
-      .Property({ location: openapi.schema.new(openapi.schema.string) }),
+      .Property({
+        gain:
+          openapi.schema.new(openapi.schema.number)
+          .Format(openapi.schema.float),
+      })
+      .Property({
+        hasScalingMatrix:
+          openapi.schema.new(openapi.schema.boolean),
+      })
+      .Property({
+        height:
+          openapi.schema.new(openapi.schema.integer)
+          .Example(1080),
+      })
+      .Property({
+        language:
+          openapi.schema.new(openapi.schema.string)
+          .Example('English'),
+      })
+      .Property({
+        languageCode:
+          openapi.schema.new(openapi.schema.string)
+          .Example('eng'),
+      })
+      .Property({
+        level:
+          openapi.schema.new(openapi.schema.integer),
+      })
+      .Property({
+        loudness:
+          openapi.schema.new(openapi.schema.number)
+          .Format(openapi.schema.float),
+      })
+      .Property({
+        lra:
+          openapi.schema.new(openapi.schema.number)
+          .Format(openapi.schema.float),
+      })
+      .Property({
+        peak:
+          openapi.schema.new(openapi.schema.number)
+          .Format(openapi.schema.float),
+      })
+      .Property({
+        profile:
+          openapi.schema.new(openapi.schema.string),
+      })
+      .Property({
+        refFrames:
+          openapi.schema.new(openapi.schema.integer),
+      })
+      .Property({
+        samplingRate:
+          openapi.schema.new(openapi.schema.integer),
+      })
+      .Property({
+        scanType:
+          openapi.schema.new(openapi.schema.string)
+          .Example('progressive')
+          .Enum('progressive'),
+      })
+      .Property({
+        selected: $.schema.boolInt,
+      })
+      .Property({
+        streamType:
+          openapi.schema.new(openapi.schema.integer)
+          .Example(1),
+      })
+      .Property({
+        width:
+          openapi.schema.new(openapi.schema.integer)
+          .Example(1920),
+      })
+      .Property({
+        location:
+          openapi.schema.new(openapi.schema.string),
+      }),
 
 
     tag::
